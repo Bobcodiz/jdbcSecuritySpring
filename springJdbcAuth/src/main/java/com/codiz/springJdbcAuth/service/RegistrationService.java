@@ -27,8 +27,10 @@ public class RegistrationService {
         userModel.setPassword(passwordEncoder.encode(userDto.getPassword()));
         userModel.setRole("user");
         try {
+            log.info("finally creating");
             return userDao.createUser(userModel);
         }catch (Exception e){
+            log.error("error occured somewhere");
             return "could not create user";
         }
 
